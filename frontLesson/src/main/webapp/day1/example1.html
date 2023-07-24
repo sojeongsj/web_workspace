@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습 1</title>
+</head>
+<!-- 연습 : 웹서버와 애플리케이션 서버에 대한 html 페이지(문서) 만들어보기 -->
+<body>
+	<!-- 이미지 표시까지 찾아서 해보기 : img 태그-->
+	<h1>서버와 클라이언트</h1>
+	<img src="../image/client_server.png" width="400">
+	<!-- 상대 URL로 ../는 한단계 상위폴더 위치를 나타내는 기호 -->
+	<h2>웹서버</h2>
+	<p>
+		<a href="https://ko.wikipedia.org/wiki/%EC%9B%B9_%EC%84%9C%EB%B2%84">위키백과</a>
+		<br> 웹 서버(Web server)는 다음의 두 가지 뜻 가운데 하나이다. <br>
+	</p>
+	<!-- style 속성은 css(디자인적인 내용) 설정 -->
+	<div style="border: 1px solid black; padding: 10px;">
+		<ol>
+			<li>웹 브라우저와 같은 클라이언트로부터 HTTP 요청을 받아들이고, HTML 문서와 같은 웹 페이지를 반환하는
+				컴퓨터 프로그램</li>
+			<li>위에 언급한 기능을 제공하는 컴퓨터 프로그램을 실행하는 컴퓨터 (하드웨어)</li>
+		</ol>
+	</div>
+
+	<p>
+		웹 서버(Web server)는 HTTP 또는 HTTPS를 통해 웹 브라우저에서 요청하는 HTML 문서나 오브젝트(이미지 파일
+		등)을 전송해주는 서비스 프로그램을 말한다. 웹 서버 소프트웨어를 구동하는 하드웨어도 웹 서버라고 해서 혼동하는 경우가 간혹
+		있다. <br>
+		<br> <a
+			href="https://developer.mozilla.org/ko/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server">모질라</a>
+		<br> &nbsp;"웹 서버"는 하드웨어, 소프트웨어 혹은 두 개가 같이 동작하는 것을 의미할 수 있습니다. <br>
+	</p>
+	<div style="border: 1px solid black; padding: 10px;">하드웨어 측면에서, 웹
+		서버는 웹 서버의 소프트웨어와 website의 컴포넌트 파일들을 저장하는 컴퓨터입니다. (컴포넌트 파일에는 HTML 문서,
+		images, CSS stylesheets, 그리고 JavaScript files가 있습니다.) 웹 서버는 인터넷에 연결되어
+		웹에 연결된 다른 기기들이 웹 서버의 데이터(컴포넌트 파일들)를 주고받을 수 있도록 합니다. 소프트웨어 측면에서, 웹 서버는
+		기본적으로 웹 사용자가 어떻게 호스트 파일들에 접근하는지를 관리합니다. 이 문서에서 웹 서버는 HTTP서버로 국한합니다.
+		HTTP 서버는 URL(Web addresses)과 HTTP(당신의 브라우저가 웹 페이지를 보여주기 위해 사용하는 프로토콜)의
+		소프트웨어 일부입니다.</div>
+	<p>
+		가장 기본적인 단계에서, 브라우저가 웹 서버에서 불려진 파일을 필요로 할때, 브라우저는 HTTP를 통해 파일을 요청합니다.
+		요청이 올바른 웹 서버(하드웨어)에 도달하였을 때, HTTP 서버(software)는 요청된 문서를 HTTP를 이용해
+		보내줍니다. <br>
+	</p>
+	<img src="../image/web-server.svg" width="400">
+
+	<h3>웹서버와 애플리케이션 서버</h3>
+	<p>
+		<a
+			href="https://www.ibm.com/kr-ko/topics/web-server-application-server">IBM</a><br>
+		웹 서버는 주로 웹 브라우저에서의 하이퍼텍스트 전송 프로토콜(HTTP) 요청에 응답하여 정적 웹 컨텐츠(예: HTML 페이지,
+		파일, 이미지, 비디오)를 제공합니다. <br> 일반적으로 애플리케이션 서버에서 웹 컨텐츠도 제공할 수 있으나, 이
+		서버의 주 기능은 최종 사용자 클라이언트와 서버 측 애플리케이션 코드(이른바 비즈니스 로직을 표현하는 코드) 간의 상호 작용을
+		통해 동적 컨텐츠, 이를테면 트랜잭션 결과, 의사결정 지원, 실시간 분석 등을 생성하고 제공하는 것입니다. 애플리케이션 서버의
+		클라이언트로는 애플리케이션 자체의 최종 사용자 UI, 웹 브라우저, 모바일 앱 등이 있습니다. 그리고 클라이언트-서버
+		상호작용은 수적 제한이 없는 통신 프로토콜을 통해 일어날 수 있습니다. <br> 그러나 현실에서는 웹 서버와
+		애플리케이션 서버의 구분이 모호해졌습니다. 특히 웹 브라우저가 애플리케이션 클라이언트로 인기를 얻고 웹 애플리케이션 및 웹
+		애플리케이션 성능에 대한 사용자의 기대가 상승하면서 더욱 그러합니다. <br> 대부분 웹 서버는 스크립팅 언어(예:
+		ASP, JSP, PHP, Perl)의 플러그인을 지원합니다. 그러면 웹 서버에서 서버 측 로직을 기반으로 동적 컨텐츠를
+		생성할 수 있습니다.
+	</p>
+
+	<h3>Apache Tomcat</h3>
+	<p>
+		Apache Tomcat(ibm.com 외부 링크)은 오픈 소스 애플리케이션 서버로서 Java 서블릿을 실행하고,
+		JSP(JavaServer Page) 코드를 포함한 웹 페이지를 렌더링 및 제공하고, Java EE(Java
+		Enterprise Edition) 애플리케이션을 서비스합니다. 1998년에 출시된 Tomcat은 가장 널리 사용되는 오픈
+		소스 Java 애플리케이션 서버입니다. <br> <a
+			href="https://ko.wikipedia.org/wiki/%EC%9B%B9_%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98_%EC%84%9C%EB%B2%84">위키백과</a><br>
+		&nbsp;&nbsp;&nbsp;웹 애플리케이션과 서버 환경을 만들어 동작시키는 기능을 제공하는 소프트웨어 프레임워크이다.
+		인터넷 상에서 HTTP를 통해 사용자 컴퓨터나 장치에 애플리케이션을 수행해 주는 미들웨어(소프트웨어 엔진)로 볼 수 있다. 웹
+		애플리케이션 서버는 동적 서버 콘텐츠를 수행하는 것으로 일반적인 웹 서버와 구별이 되며, 주로 데이터베이스 서버와 같이 수행이
+		된다. 한국에서는 일반적으로 "WAS" 또는 "WAS S/W"로 통칭하고 있으며 공공기관에서는 "웹 응용 서버"로 사용되고,
+		영어권에서는 "Application Server" (약자 AS)로 불린다. <br>
+		&nbsp;&nbsp;&nbsp;웹 애플리케이션 서버는 대부분이 자바 기반으로 주로 자바 EE 표준을 수용하고 있으나, 비
+		자바 계열도 존재한다.<br> &nbsp;&nbsp;&nbsp;웹 애플리케이션 서버의 기본 기능은 3가지이다. <br>
+	</p>
+	<div style="border: 1px solid black; padding: 10px;">
+		<ol>
+			<li>프로그램 실행 환경과 데이터베이스 접속 기능을 제공한다.</li>
+			<li>여러 개의 트랜잭션을 관리한다.</li>
+			<li>업무를 처리하는 비즈니스 로직을 수행한다.</li>
+		</ol>
+	</div>
+
+
+	<br>
+	<h1>HTML</h1>
+	<a
+		href="https://developer.mozilla.org/ko/docs/Learn/HTML/Introduction_to_HTML/Getting_started">참고</a>
+	<h2>HTML이란?</h2>
+	<ul>
+		<li>HTML (Hypertext Markup Language,하이퍼텍스트 마크업 언어)</li>
+		<li>프로그래밍 언어는 아니고, 우리가 보는 웹페이지가 어떻게 구조화되어 있는지 브라우저로 하여금 알 수 있도록
+			하는 마크업 언어입니다.</li>
+		<li>HTML은 elements(요소)로 구성되어 있습니다.</li>
+		<li>tags 는 HTML 문서를 구성하는 요소들을 감싸는 표식입니다. 태그 이름에 따라 요소들이 지정된 기능의
+			효과를 보입니다.</li>
+	</ul>
+	<h2>HTML 요소(Element)의 구조</h2>
+	<img src="../image/element.png" width="400">
+
+	<br>
+	<div style="border: 1px solid black; padding: 10px;">
+		여는 태그(Opening tag): <br> &nbsp;&nbsp;&nbsp;+ 요소가 시작되는 표시입니다. 태그의
+		효과가 적용되기 시작합니다. <br> 닫는 태그(Closing tag): <br>
+		&nbsp;&nbsp;&nbsp;+ 슬래시(/)가 있는것을 제외하면 여는 태그(opening tag)와 같습니다. 이것은
+		요소의 끝(이 경우 단락의 끝 부분)에 위치합니다. <br> 내용(Content): <br>
+		&nbsp;&nbsp;&nbsp;+ 요소의 내용이며, 이 경우 단순한 텍스트입니다. <br> 요소(Element):
+	</div>
+	<br> &nbsp;&nbsp;&nbsp; + 여는 태그, 닫는 태그, 내용을 통틀어 요소(element)라고합니다.
+	<br> 요소 안에 다른 요소가 들어갈 수 있습니다. 그런 요소는 내포되었다고 표현합니다.
+	<br>
+	<h4>블럭 레벨 요소 vs 인라인 요소(Block versus inline elements)</h4>
+
+
+	<p>
+		HTML에는 두가지 종류의 요소(Element) 가 있습니다. 블록 레벨 요소(Block level element) 와 인라인
+		요소(Inline element) 입니다. <br>
+	</p>
+	<strong>블록 레벨 요소(Block-level elements)</strong>
+	<div style="border: 1px solid black; padding: 10px;">
+		&nbsp;&nbsp;&nbsp;웹페이지 상에 블록(Block)을 만드는 요소입니다. <br>
+		&nbsp;&nbsp;&nbsp;블록 레벨 요소는 앞뒤 요소 사이에 새로운 줄(Line)을 만들고 나타납니다.즉 블록 레벨
+		요소 이전과 이후 요소사이의 줄을 바꿉니다. <br> &nbsp;&nbsp;&nbsp;블록 레벨 요소는 일반적으로
+		페이지의 구조적 요소를 나타낼 때 사용됩니다. 예를 들어 개발자는 블록 레벨 요소를 사용하여 <br>
+		&nbsp;&nbsp;&nbsp;단락(Paragraphs), 목록(lists), 네비게이션 메뉴(Navigation
+		Menus), 꼬리말(Footers) 등을 표현할 수 있습니다. <br> &nbsp;&nbsp;&nbsp;블록 레벨
+		요소는 인라인 요소(Inline elements)에 중첩될(Nested inside)수 없습니다. 그러나 블록 레벨 요소는
+		다른 블록 레벨 요소에 중첩될 수 있습니다.<br>
+	</div>
+	<br>
+	<strong>인라인 요소(Inline elements)</strong>
+	<br>
+	<div style="border: 1px solid black; padding: 10px;">
+		&nbsp;&nbsp;&nbsp;항상 블록 레벨 요소내에 포함되어 있습니다. <br>
+		&nbsp;&nbsp;&nbsp;인라인 요소는 문서의 한 단락같은 큰 범위에는 적용될 수 없고 문장, 단어 같은 작은 부분에
+		대해서만 적용될 수 있습니다. <br> &nbsp;&nbsp;&nbsp;인라인 요소는 새로운 줄(Line)을 만들지
+		않습니다. 즉 인라인 요소를 작성하면 그것을 작성한 단락내에 나타나게 됩니다. <br>
+		&nbsp;&nbsp;&nbsp;예를 들어, 인라인 요소에는 하이퍼링크를 정의하는 요소인 &lt;a&gt; ,
+		텍스트(Text)를 강조하는 요소인 &lt;em&gt;,&lt;strong&gt; 등이 있습니다. <br>
+	</div>
+	<br>
+	<strong>빈 요소(Empty elements)</strong>
+	<br>
+
+	<div style="border: 1px solid black; padding: 10px;">
+		&nbsp;&nbsp;&nbsp;모든 요소가 위에 언급된 여는 태그, 내용, 닫는 태그 패턴을 따르는 것은 아닙니다. <br>
+		&nbsp;&nbsp;&nbsp;주로 문서에 무언가를 첨부하기 위해 단일 태그(Single tag)를 사용하는 요소도
+		있습니다.<br> &nbsp;&nbsp;&nbsp;예를 들어 <img> 요소는 해당 위치에 이미지를
+		삽입하기 위한 요소입니다:<br>
+	</div>
+	<br>
+
+	<p>
+		<strong>속성(Attributes)</strong> 요소는 아래 이미지와 같이 속성을 가질 수 있습니다: <br>
+
+		&lt;p class="editor-note">My cat is very grumpy&gt; <br> 속성은 요소에
+		추가적인 내용을 담고 싶을 때 사용합니다. 이후에 스타일(디자인)과 관련된 내용이나 기타 내용을 위해 해당 목표를 구분할 수
+		있는 class 속성을 부여했습니다.<br> 속성을 사용할 때에는 아래 내용을 지켜야 합니다:<br>
+	</p>
+	<div style="border: 1px solid black; padding: 10px;">
+		&nbsp;&nbsp;&nbsp;요소 이름 다음에 바로 오는 속성은 요소 이름과 속성 사이에 공백이 있어야 되고, 하나 이상의
+		속성들이 있는 경우엔 속성 사이에 공백이 있어야 합니다.<br> &nbsp;&nbsp;&nbsp;속성 이름 다음엔
+		등호(=)가 붙습니다.<br> &nbsp;&nbsp;&nbsp;속성 값은 열고 닫는 따옴표로 감싸야 합니다.<br>
+	</div>
+
+
+</body>
