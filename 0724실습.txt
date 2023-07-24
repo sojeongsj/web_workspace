@@ -1,0 +1,34 @@
+1.웹서비스 시작
++서버 프로그램 : 톰캣
+      ㄴ 설치 프로그램 또는 무설치(zip) 방식
++클라이언트 프로그램 : 브라우저(크롬) (tomcat.apache.org)
++톰캣 실행하면 각자 컴퓨터가 웹서버가 될 수 있음
+      ㄴ bin 폴더 startup.bat 로 서비스 시작
+         shutdown.bat 로 서비스 종료합니다.
++웹서비스를 위해 서버의 주소 -> URL
+	예시 1 > http://localhost:포트/examples/index.html
+	index.html은 서비스 요청에 대한 응답 페이지
+	샘플로 webapps 폴더 아래 examples 폴더에 있습니다. 
+	확장자 html은 정적인 컨텐츠
+	
+	예시 2 > http://localhost:포트/ 로 요청하면 
+	ROOT 폴더 아래 index.jsp가 기본적으로 나옴
+	확장자 JSP는 동적인 컨텐츠 생성. 예시로 DBMS에서 데이터
+	조회결과를 보여주는 등 내용이 사용자 요청에 따라 달라짐
+	결과적으로 최종 응답은 html 형식으로 보내짐
+
++ 지금까지는 웹서버의 '실행환경'으로 실습. 개발환경은 이클립스에서 톰캣을 사용하도록 설정을 해야함
+web_workspace 생성 perspective java EE 
+window - preferences - web - css, html, jsp utf-8로 변경
+window - preferences - general - web browser - external, chrome
+file - new - dynamic web project frontLesson 
+서버 탭 - 파란글씨 클릭 - 아파치 - 톰캣 9.0 - 디렉토리 D:\iclass0419\apache-tomcat-9.0.78 - frontLesson Add
+Tomcat 9.0 더블클릭 - 포트 충돌시 포트번호 바꾸기 - 서버탭에서 server start 누르기 - 콘솔창에 실행성공 확인하기
+D:\iclass0419\apache-tomcat-9.0.78\webapps\examples 에서 index.html ctrl+C frontLesson src에 ctrl+V
+우클릭 - Run As - 1 Run on Server - tomcat 클릭 - next - finish
+
+2.클라이언트가 서버에게 웹서비스를 요청한다.
+서버는 요청에 대한 응답으로 html 페이지를 전송해줍니다.
+ html 문서는 텍스트로 구성된 파일이고 이것을 브라우저가
+랜더링을 해서 화면을 만들어 줍니다. 이미지, 디자인적인 요소를 
+클라이언트 화면으로 보게됩니다. 
