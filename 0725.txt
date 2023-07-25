@@ -1,0 +1,35 @@
+border-width: 1px;border-style: solid; border-color:  black;
+border : 1px solid black;
+
+테두리는 상하좌우 4개방향에 대해 width, style, color 각각 설정 가능
+border-top-width
+border-bottom-width
+border-left-width
+border-right-width
+
+
+여백 아래 2가지도 방향 지정 가능
+padding-top
+padding-bottom
+padding-left
+padding-right
+4개의 방향을 직접 지정할 수도 있고 모두 동일하다면 방향을 생략하고 씀
+padding : 40px 30px 20px 10px; 시계방향으로 상/우/하/좌
+padding : 40px 20px; 상/하, 좌/우
+padding : 20px; 모든방향 동일하게 20px
+
+안쪽(내부) 여백 padding
+테두리 바깥쪽(외부) 여백은 margin\
+
+margin은 특별히 auto 설정하여 좌/우 여백을 중앙으로 배치되게 설정 가능
+
+width 너비, height 높이, 절대값으로 px 등을 줄 수 있고, 부모의 너비 기준 상대값으로 %를 줄 수 있음
+지금까지 padding, margin, width, height 는 block요소에만 설정 가능 
+일반적인 블럭요소 div
+인라인요소 span
+인라인 요소에 너비와 높이를 주고싶으면 display 속성을 inline-block;
+
+인라인 요소 안에 인라인 요소 중첩 가능?
+인라인 요소 안에 블록 요소 중첩 가능?	X
+블럭 요소 안에 인라인 요소 중첩 가능?
+블럭 요소 안에 블럭 요소 중첩 가능?
