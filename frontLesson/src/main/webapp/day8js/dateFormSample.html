@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>dateFormSample.html</title>
+</head>
+<body>
+	<form action="">	<!-- 동기방식의 서버 - 클라이언트 동작에서만 form 태그 사용 -->
+		<label for="selectNight">숙박일수</label> <select name="days"
+			id="selectNight">
+			<option value="0">선택</option>
+			<option value="1">1박</option>
+			<option value="2">2박</option>
+			<option value="3">3박</option>
+			<option value="4">4박</option>
+		</select> <label for="enterDate">입실 날짜 :</label> <input type="date"
+			name="start" id="enterDate"><br> <label for="outDate">퇴실
+			날짜 :</label> <input type="date" name="end" id="outDate"><br>
+	</form>
+
+	<!-- 1. 입실날짜는 오늘 날짜로 초기화
+	 2. 퇴실날짜는 선택한 숙박일수 + 입실날짜 8/2 입실 + 3박 = 8/5
+	 3. 퇴실날짜는 select 태그에서 숙박일수를 선택하면 계산해서 표시
+	 	-click, change 이벤트
+	 4. 입실날짜는 오늘 이전 날짜는 선택 못하도록 해야함 (input 태그 min 속성)
+	 	입실날짜는 오늘 ~ 3달 이후로만 선택가능(input 태그 max 속성)
+	 	** 참고 : input type = date 인 경우 value 는 년도 4자리-월2자리-일2자리 -->
+	<script type="text/javascript">
+	const start = document.forms[0].start	//입실날짜 요소
+	const end = document.forms[0].end		//퇴실날짜 요소
+	const days = document.forms[0].days		//숙박일수 요소
+	
+	console.log(new Date())
+	console.log(dateFormat(new Date(),'-'))
+	
+	function calculateEnd() {
+		console.log(start.value)	//받아온 값의 형식이 yyyy-mm-dd
+		console.log(end.value)
+		console.log(days.value)
+		console.log(typeof start)
+		console.log(typeof end)
+		console.log(typeof days)
+		
+	}
+	
+	document.getElementById('selectNight').addEventListener('click',calculateEnd)
+	document.getElementById('enterDate').addEventListener('change',calculateEnd);	//반드시 change 이벤트
+	
+	
+		function dateFormat(vdate, symbol) {
+			let year = vdate.getFullYear()
+			let month = (vdate.getMonth() + 1).toString().padStart(2, '0')
+			let dates = vdate.getDate().toString().padStart(2, '0')
+			let result = [ year, month, dates ].join(symbol)
+			return result
+		}
+		//입실날짜 찍기, 퇴실날짜 찍기 시험
+		// 1. 입실날짜는 오늘 날짜로 초기화
+		//start.value = dateFormat(new Date(), '-')
+		document.getElementById('enterDate').value = dateFormat(new Date(), '-');
+
+		// 2. 퇴실날짜는 선택한 숙박일수 + 입실날짜 8/2 입실 + 3박 = 8/5
+		function updateOutDate() {
+			
+			let spday = Number(document.getElementById('selectNight').value)
+			let enterDate = document.getElementById('enterDate').value;
+			let outForm = new Date(enterDate);
+			outForm.setDate(outForm.getDate() + spday);
+			let outDate = dateFormat(outForm, '-');
+			document.getElementById('outDate').value = outDate;
+			
+			//let temp = new Date(start.value)
+			//let spday = Number(days.value)
+			//temp.setDate(temp.getDate()+spday)
+			//let outDate = dateFormat(temp,'-')
+			//end.value = outDate
+			
+		}
+
+		// 3. 퇴실날짜는 select 태그에서 숙박일수를 선택하면 계산해서 표시
+		document.getElementById('selectNight').addEventListener('change',
+				updateOutDate);
+		document.getElementById('enterDate').addEventListener('change',
+				updateOutDate);
+
+		//4. 입실날짜 설정
+		let maxdays = new Date()
+		maxdays.setMonth(new Date().getMonth() + 3)
+		let maxday = dateFormat(maxdays, '-')
+
+		//start.min = dateFormat(new Date(), '-')
+		document.getElementById('enterDate').min = dateFormat(new Date(), '-')
+		//start.max = maxday
+		document.getElementById('enterDate').max = maxday
+	</script>
+
+</body>
+</html>
