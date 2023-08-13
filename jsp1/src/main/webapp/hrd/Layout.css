@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap')
+	;
+
+* {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+
+/* 블럭 요소의 width는 기본이 화면의 100, height는 컨텐츠 크기만큼. 높이는 padding으로 정하기*/
+body {
+	margin: 0;
+}
+
+
+html, body {
+	height : 100%;
+}
+
+header {
+	min-height : 20vh;
+	background-color: #5c6bc0;
+	box-sizing : border-box;
+	text-align: center;
+	color: white;
+	
+	/* flexbox 레이아웃으로 자식요소 정렬 */
+	display: flex;
+	/* 수직 정렬 */
+	align-items: center;
+	/* 수평 정렬 */
+	justify-content: center;
+}
+
+nav{
+	min-height: 7vh;
+	box-sizing: border-box;
+	
+}
+nav ul {
+	list-style: none;
+	background-color: #9fa8da;
+	margin: 0px;
+	/* 자식 li에 float 속성을 지정했을 때 필요 */
+	overflow: hidden;
+	height: 7vh;
+	
+}
+
+nav a {
+	text-decoration: none;
+	padding: 20px;
+	display: inline-block;
+	color: white;
+}
+
+
+
+nav li {
+	float: left;
+	/* float을 지정하면 부모태그 ul의 높이가 0이 됨 
+ 	ul 태그 overflow를 설정하기*/
+}
+
+section {
+	padding : 10px;
+	min-height : 66%;
+	background-color: #e0e0e0;
+	box-sizing : border-box;
+	/* 컨텐츠 내용만큼 높이만 지정되는 것을 
+ 		최소 높이 지정하여 바꾸기 */
+}
+	
+
+
+footer {
+	padding: 10px; 
+	height : 7%;
+	background-color: #5c6bc0;
+	color: white;
+	text-align: center;
+	font-size: 80%;
+	box-sizing : border-box;
+}

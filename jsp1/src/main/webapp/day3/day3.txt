@@ -1,0 +1,77 @@
+jsp의 scope이 무엇인지/ 내장객체 종류 7가지(이름, 참조타입, 의미)
+
+
+- 웹 서버에서 객체 또는 변수가 생성된후 유효 할 수 있는 범위를 말한다.
+
+- 총 4가지 종류의 scope가 존재 한다.
+
+Page : 페이지 내에서 지역변수처럼 사용
+Request : http요청을 WAS가 받아서 웹 브라우저에게 응답할 때까지 변수가 유지되는 경우 사용
+Session : 웹 브라우저 별로 변수가 관리되는 경우 사용
+Application : 웹 어플리케이션이 시작되고 종료될 때까지 변수가 유지되는 경우 사용
+               (모든 클라이언트에게공통적으로 무언가를 보여 줄때 사용)
+    
+JSP의 scope
+scope : 데이터를 사용할수 있는 범위/영역    
+pageContext < request < session < application
+*jsp : useBean의 기본 scope = "page"
+여기서 page는 pageContext
+*jsp : useBean 으로 생성된 자바빈 id는 일반변수와는 다르게 부름
+자바빈은 attribute 라고 부르기도 함 ${} EL 기호를 사용해서 값을 가져올수 있음
+getUname(), getAge() getter 대신 필드 이름(프로퍼티)만 작성 
+*jsp:useBean 자바빈 생성은 setAttribute("이름","값") 메소드
+					사용(가져오기)는 getAttribute() 메소드
+
+
+JSP 내장객체
+pageContext : javax.servlet.jsp.PageContext
+	JSP 페이지에 대한 정보를 저장하고 있는 객체
+	*pageScope 는 현재 jsp 페이지 안에서만 정보를 유지
+		
+request: javax.servlet.http.HttpServletRequest 
+	웹 브라우저의 요청 정보를 저장하고 있는 객체 
+	*requestScope 는 하나의 요청이 끝날 때까지 정보를 유지
+		- A.jsp 요청을 다른 B.jsp로 전달
+	
+session : javax.servlet.http.HttpSession 
+	하나의 웹 브라우저의 정보(세션정보)를 저장하고 있는 객체 
+	*sessionScope 는 브라우저가 종료될 때까지 정보를 유지
+   
+application : javax.servlet.ServletContext 
+	웹 어플리케이션 Context의 정보를 저장하고 있는 객체
+	*applicationScope 는 서버에서 애플리케이션이 종료될 때까지 정보를 유지
+	---------------------------------------------------------
+response: javax.servlet.http.HttpServletResponse 
+	웹 브라우저의 요청에 대한 응답 정보를 저장하고 있는 객체 
+
+out : javax.servlet.jsp.jsp.jspWriter 
+	JSP 페이지에 출력할 내용을 가지고 있는 출력 스트림 객체이다. 
+	
+page : java.lang.Object 
+	JSP 페이지를 구현한  자바 클래스 객체
+
+pageContext : javax.servlet.jsp.PageContext 
+	JSP 페이지에 대한 정보를 저장하고 있는 객체 
+
+config : javax.servlet.ServletConfig 
+	JSP 페이지에 대한 설정 정보를 저장하고 있는 객체 
+   
+exception : java.lang.Throwable 
+	JSP 페이지서 예외가 발생한 경우에 사용되는 객체 
+	
+-------------------------------------------------
+※scope='request'일 때는 forward가 같이 사용
+서블릿을 이용해서 개발하면 '처리' 와 '화면출력(view)' 파일이 분리됨
+'처리' -> 서블릿 .java로 구현 (지금은 먼저 '처리'기능을 .jsp 분리해서 연습중)
+'화면구현(view) -> jsp .jsp로 구현
+EX)
+MemberList.jsp가 List.java에서 dao 실행하고 listView.jsp에서 화면출력
+이 때, List.java에서 ListView.jsp로 forward가 되고 데이터도 전달
+	  List.java에 url을 정해줌. EX)List.do(.do는 임의로 붙는 확장자)
+-------------------------------------------------
+앞으로의 계획
+1. jsp/서블릿의 객체 위주
+2. jdbc 의 preparedStatement 인터페이스 사용을 mybatis 프레임웍으로 변경
+3. 외부라이브러리는 최종적으로 build - 배포파일 만들 때 사용
+	-빌드 도구 (빌드 자동화) : maven(xml), gradle(kotlin) 
+4. 게시판 (소스파일) 만들기
